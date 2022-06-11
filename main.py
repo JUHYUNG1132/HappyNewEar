@@ -24,6 +24,12 @@ logf = open('/home/pi/Desktop/HappyNewEar/log.txt', 'wt')
 making_noise = 0
 
 def noise(rate):
+    '''
+    noise(위험도 단계)
+    골전도스피커 소리 출력 함수
+
+    쓰레드로 실행
+    '''
     t_start = time.time()
     
     global making_noise
@@ -42,6 +48,13 @@ def noise(rate):
 
 
 def Sort(data):
+    '''
+    Sort(raw데이터)
+    소리 분류 함수
+    raw 데이터를 4채널로 나누고 모델에 집어넣고 res[]에 결과값 저장
+
+    쓰레드로 실행
+    '''
     t_start = time.time()
     data = clf.tonumpy(data)
     data = clf.preprocess(data)
@@ -60,6 +73,14 @@ def Sort(data):
     print('{0}|{1:0>4.3f}|{2:0>4.3f}|{3:0>4.3f}'.format('Sort()', t_start, time.time(), time.time()-t_start), file = logf)
 
 def getRaw():
+    '''
+    getRaw()
+    PCM데이터 수신
+    9001포트에서 8192바이트만큼의 데이터를 읽어옴
+    raw[] 변수에 저장
+
+    쓰레드로 실행
+    '''
     t_start = time.time()
     print('raw')
     count=0
@@ -95,6 +116,14 @@ def getRaw():
     print('{0}|{1:0>4.3f}|{2:0>4.3f}|{3:0>4.3f}'.format('getRaw()', t_start, time.time(), time.time()-t_start), file = logf)
 
 def getDest():
+    '''
+    getDest()
+    소리 위치정보 수신
+    9000포트에서 4096바이트만큼 읽어옴
+    JSON형식 파일 수신, 해독하고 x,y값만 읽어서 pos[]에 저장
+
+    쓰레드로 실행
+    '''
     print('dest')
 
     count=0
@@ -137,6 +166,14 @@ def getDest():
         print('{0}|{1:0>4.3f}|{2:0>4.3f}|{3:0>4.3f}'.format('getDest()', t_start, time.time(), time.time()-t_start), file = logf)
 
 def pltthread():
+      '''
+      pltthread()
+      전역변수 pos[], res[]값을
+      pygame 라이브러리로 화면에 표시
+      위험군 분류해서 noise() 호출 (making_noise == 0 일때만)
+
+      쓰레드로 실행
+      '''
 
       global pos
       global res

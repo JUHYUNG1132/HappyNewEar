@@ -63,7 +63,7 @@ class Classificate:
     def preprocess(self, data):
         '''
         preprocess(data) *numpy data*
-        [-1,1] 크기 전처리 함수
+        진폭 [-1,1] 크기 전처리 함수
         반환값: 처리된 data
         '''
         max = np.max(np.abs(data))
