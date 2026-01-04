@@ -1,34 +1,52 @@
-# HappyNewEar
-Software for Hard of Hearing
+## 2021 19th KESSIA Embeded Software Contest Repo.
+## Team HappyNewEar
+이현제, 이주형, 이지수, 장예진, 정하연  
 
-img - 특정 소리의 사진이 든 폴더 //
+## Objective
+System for Hard of Hearing  
 
-odas - ODAS(Open EmbeddeD Audition System) 폴더 //
+## Result
+**KESSIA Chairman's Awarded**  
 
-<<<<<<< HEAD
-__pycache__ - 캐시 파일 //
-=======
-pycache - 캐시 파일 //
->>>>>>> 0a5787e1669db1a8c93c2106303764598011fe31
+## Project Overview
+The system helps hearing-impaired people accurately and quickly recognize dangerous situations they may encounter in their daily lives (such as car horns, sirens, and gas explosions).  
+It receives sounds through an omnidirectional microphone array, classifies them, and transmits the direction of the sound to a display and bone conduction speaker (via vibration).  
 
-Classification.py - 소리 분류를 위한 모듈 //
+## Key Features
+- Real-time Audio Classification: With YAMNet using TensorFlow Lite, classifies 47 sounds in real-time.   
+- Sound Source Localization (SSL): Localize direction of incoming sound via 4-Mic-Array and ODAS
+- Display: Visualize the position and type of sound using
+- Bone conduction speaker: Vibrate to alert user in 3 levels of danger.
+- On-device & Portable: Portable system using Raspberry-pi and power bank while all pipelines are processed on-device.
 
-HappyNewEar.sh - 프로그램의 실행 파일 //
+## Software
+- Raspberry Pi OS (Linux)
+- Python 3.7.3
+- ML Framework: TensorFlow Lite
 
-log.txt - 프로그램 실행의 로그 파일 //
+## Demo
+Youtube Demo ==> [ytlink]  
 
-main.py - 프로그램 실행의 중추 //
+[ytlink]: https://www.youtube.com/watch?v=RFun6zqWqaE "Demo link"  
 
-<<<<<<< HEAD
-odas.cfg - ODAS configuration file //
+## Repo Structure
+├── Docs/                   # Project documentation (Proposals, Final report)  
+├── deprecated/             # Unused or legacy files  
+├── img/                    # Predicted class assets
+├── odas/                   # External: ODAS repository (Vendored)
+│  
+├── HappyNewEar.sh          # Project executable shell script  
+├── main_plt.py             # Main entry point (using Matplotlib for plotting)  
+├── main_pygame.py          # Main entry point (using Pygame for plotting)  
+├── Classification.py       # Audio classification core module  
+│  
+├── yamnet.tflite           # YAMNet model weights  
+├── yamnet_class_map_*.csv  # Class label mapping for YAMNet predictions  
+├── odas.cfg                # ODAS Configuration files  
+│  
+├── log.txt                 # Runtime logs  
+└── README.md  
+  
+ODAS repo. ==> [odasLink]  
 
-yamnet.tflite - TensorFlow Lite용으로 변환된 머신러닝 모델 //
-
-yamnet_class_map.csv - 모델 결과와 출력 매핑 csv //
-=======
-yamnet.tflite - TensorFlow Lite용으로 변환된 머신러닝 모델 //
-
-tament_class_map.csv - 모델 결과와 출력 매핑 csv //
->>>>>>> 0a5787e1669db1a8c93c2106303764598011fe31
-
-ODAS repo. ==> https://github.com/introlab/odas
+[odasLink]: https://github.com/introlab/odas "ODAS Repo."

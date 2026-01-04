@@ -37,7 +37,7 @@ class Classificate:
             stat = 0
         else:
             print('성공')
-            self.classNames = getcsv('yamnet_class_map.csv')
+            self.classNames = getcsv('yamnet_class_map_masked_kor.csv')
 
             input_details = self.model.get_input_details()
             self.waveform_input_index = input_details[0]['index']
