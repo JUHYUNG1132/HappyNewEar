@@ -30,6 +30,8 @@ Youtube Demo ==> [ytlink]
 [ytlink]: https://www.youtube.com/watch?v=RFun6zqWqaE "Demo link"  
 
 ## Repo Structure
+```text
+.
 ├── Docs/                   # Project documentation (Proposals, Final report)  
 ├── deprecated/             # Unused or legacy files  
 ├── img/                    # Predicted class assets
@@ -46,7 +48,8 @@ Youtube Demo ==> [ytlink]
 │  
 ├── log.txt                 # Runtime logs  
 └── README.md  
-  
+```
+
 ODAS repo. ==> [odasLink]  
 
 [odasLink]: https://github.com/introlab/odas "ODAS Repo."
